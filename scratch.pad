@@ -1,0 +1,2 @@
+
+python3 train_RFB.py -d COCO -v RFB_E_vgg -s 512

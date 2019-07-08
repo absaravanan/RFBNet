@@ -7,7 +7,8 @@ ddir = os.path.join(home,"data/VOCdevkit/")
 
 # note: if you used our download scripts, this should be right
 VOCroot = ddir # path to VOCdevkit root dir
-COCOroot = os.path.join(home,"data/COCO/")
+COCOroot = os.path.join(home,"data/coco/")
+print ("coco rooooooooot", COCOroot)
 
 
 #RFB CONFIGS

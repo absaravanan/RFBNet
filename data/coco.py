@@ -22,6 +22,8 @@ from utils.pycocotools.coco import COCO
 from utils.pycocotools.cocoeval import COCOeval
 from utils.pycocotools import mask as COCOmask
 
+import os.path as osp
+
 
 class COCODetection(data.Dataset):
 
@@ -88,10 +90,13 @@ class COCODetection(data.Dataset):
         """
         # Example image path for index=119993:
         #   images/train2014/COCO_train2014_000000119993.jpg
-        file_name = ('COCO_' + name + '_' +
-                     str(index).zfill(12) + '.jpg')
-        image_path = os.path.join(self.root, 'images',
-                              name, file_name)
+        # Example image path for index=119993:
+        #   images/train2014/COCO_train2014_000000119993.jpg
+        # file_name = ('COCO_' + name + '_' +
+        #              str(index).zfill(12) + '.jpg')
+        path = self._COCO.loadImgs(index)[0]['file_name']
+
+        image_path = osp.join(self.root, 'images', 'train2014',path)
         assert os.path.exists(image_path), \
                 'Path does not exist: {}'.format(image_path)
         return image_path
